@@ -8,11 +8,14 @@ export default function AppLayout ({children }: {children : React.ReactNode}) {
     const [sidebarOpen , setSidebarOpen] = useState<boolean>(true)
   return<>
         
-        <Navigation ontoggle={() => setSidebarOpen(prev => !prev)} />
-        <div className="main">
-            <Sidebar isopen = {sidebarOpen} />
-            {children}
-            
-            </div>
+ <Navigation ontoggle={() => setSidebarOpen(prev => !prev)} />
+<div className="main">
+    <Sidebar isopen={sidebarOpen} />
+    
+    <div className="children">
+        {children}
+    </div>
+</div>
+
   </>
 }

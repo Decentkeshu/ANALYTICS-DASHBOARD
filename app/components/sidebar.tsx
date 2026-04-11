@@ -21,7 +21,7 @@ export default function Sidebar({ isopen }: { isopen: boolean }){
         transition: "width 0.25s ease",
         flexShrink: 0,
         borderRight: isopen ? "1px solid var(--border)" : "0",
-        minHeight: "100vh",
+        height: "calc(100vh - 45px)",
         position: "sticky",
         top: "45px",
        overflowY: "auto",

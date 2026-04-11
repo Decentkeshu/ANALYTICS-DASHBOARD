@@ -238,8 +238,19 @@ html body{
     color: #534AB7;
 }
 
-.dashboard {
-    /* margin-top: 50px;
-    margin-left : 250px; */
-    /* margin : auto; */
+
+
+
+.children{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main{
+    display: flex;
+    align-items: stretch;
+    min-height: 100vh;
+
 }
