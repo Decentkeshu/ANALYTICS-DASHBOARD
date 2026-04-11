@@ -26,6 +26,7 @@
     gap: 10px;
     padding: 0 16px;
     justify-content: space-between;
+    z-index: 100;
 }
 
 .hamburger {
@@ -191,4 +192,54 @@ html body{
     font-size: 24px;
     color: var(--text-secondary);
     margin-left: auto;
+}
+
+.sidebar-logo {
+    font-size: 18px;
+    font-weight: 500;
+    padding: 20px 16px;
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 8px;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: background 0.15s ease;
+    white-space: nowrap;
+}
+
+.sidebar-item:hover {
+    background: var(--bg);
+    color: var(--text);
+}
+
+.sidebar-item-active {
+    background: var(--bg);
+    color: var(--text);
+    font-weight: 500;
+}
+
+.sidebar-item-active svg {
+    color: #534AB7;
+}
+
+.dashboard {
+    /* margin-top: 50px;
+    margin-left : 250px; */
+    /* margin : auto; */
 }

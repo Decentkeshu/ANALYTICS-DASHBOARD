@@ -4,13 +4,11 @@ import { useState,useEffect,useRef } from "react"
 import { Search } from "lucide-react"
 
 
-export default function Navigation (){
-    const [sidebaOpen,setSidebarOpen] = useState(false);
+export default function Navigation ({ ontoggle }: { ontoggle: () => void }){
     const [isDark , setIsDark] = useState(false);
     const [notification ,setnotification] = useState(13);
     const [date ,setdate] = useState("");
     const inputRef = useRef<HTMLInputElement>(null)
-
 
     useEffect(() => {
     document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light")
@@ -35,12 +33,11 @@ export default function Navigation (){
             year : "numeric",
             day : "numeric"
         })
-        // console.log("date : ",formatted)
         setdate(formatted)
     },[])
     return<>
 <div className="Navbar">   
-<div onClick={() => setSidebarOpen(!sidebaOpen)} className="hamburger">
+<div onClick={ontoggle} className="hamburger">
   <div className="hamburger-line" />
   <div className="hamburger-line" />
   <div className="hamburger-line" />
