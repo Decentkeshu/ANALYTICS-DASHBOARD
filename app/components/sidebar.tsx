@@ -5,11 +5,11 @@ import { LayoutDashboard,BarChart2,Users,DollarSign,FileText,Settings } from "lu
 
 const navItems = [
     {label : "Dashboard", icon : LayoutDashboard, href : "/Dashboard"},
-    {label : "Analytics" , icon : BarChart2 , href : "/Dashboard/analytics"},
-    {label : "Users", icon : Users , href : "/Dashboard/users"},
-    {label : "Revenue" , icon : DollarSign , href : "/Dashboard/revenue"},
-    {label : "Reports" , icon : FileText , href : "/Dashboard/reports"},
-    {label : "Settings", icon : Settings , href : "/Dashboard/settings"}
+    {label : "Analytics" , icon : BarChart2 , href : "/analytics"},
+    {label : "Users", icon : Users , href : "/users"},
+    {label : "Revenue" , icon : DollarSign , href : "/revenue"},
+    {label : "Reports" , icon : FileText , href : "/reports"},
+    {label : "Settings", icon : Settings , href : "/settings"}
 ]
 export default function Sidebar({ isopen }: { isopen: boolean }){
     const pathname = usePathname()
