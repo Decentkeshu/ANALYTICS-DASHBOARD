@@ -1,3 +1,8 @@
+@import "tailwindcss";
+
+
+
+
 [data-theme="dark"] {
     --bg: #0a0a0a;
     --bg-secondary: #1a1a1a;
@@ -244,8 +249,10 @@ html body{
 .children{
     flex: 1;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
+    /* margin-top: 40px; */
+
 }
 
 .main{
