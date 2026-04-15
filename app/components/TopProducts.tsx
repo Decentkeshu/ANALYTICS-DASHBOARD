@@ -20,6 +20,7 @@ const products: Product[] = [
 ]
 
 export default function TopProducts() {
+
   return (
     <div className="bg-gray-100 border border-gray-200 rounded-xl p-5 flex flex-col gap-4 w-full h-105">
    
@@ -41,7 +42,7 @@ export default function TopProducts() {
               <th className="text-left text-xs font-medium text-gray-400 pb-3 pr-4">Revenue</th>
               <th className="text-left text-xs font-medium text-gray-400 pb-3">Growth</th>
             </tr>
-          </thead>
+          </thead> 
           <tbody>
             {products.map((product) => (
               <tr

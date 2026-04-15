@@ -4,6 +4,7 @@ import KPIcard from "../components/KPI_cards"
 import Totaloverview from "../components/TrafficOverfow"
 import TrafficSource from "../components/Trafficsource"
 import Devicebreakdown from "../components/Devicebreakdown"
+import TopPages from "../components/Toppages"
 
 const stats = [
   { label: "Total page views",     value: "24,520", change: 10.2,  lowerIsBetter: false },
@@ -23,14 +24,16 @@ export default function Analytics(){
                    <Totaloverview />
                  </div>
 
-<div className="grid grid-cols-2 gap-2 mt-4 "> 
+<div className="grid grid-cols-2 gap-2 mt-1 "> 
    <div className="col-span-1   ">
           <TrafficSource />
         </div>
         <div className="col-span-1 ">
           <Devicebreakdown />
         </div>
-
+           <div className="col-span-full ">
+                   <TopPages />
+                 </div>
          </div>
     </div>
   </>
