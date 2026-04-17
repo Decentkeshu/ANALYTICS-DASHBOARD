@@ -12,9 +12,9 @@ const formatTooltip = (value: number) => `${value}%`
 
 export default function Devicebreakdown() {
   return (
-    <div className=" bg-gray-100 border border-gray-200 rounded-xl p-5 flex flex-col gap-4 h-80">
+    <div className=" bg-gray-100 border border-gray-200 rounded-xl p-5 flex flex-col gap-4 h-91">
       {/* Header */}
-      <h2 className="text-sm font-medium text-gray-800">Traffic Source By Catagory</h2>
+      <h2 className="text-sm font-medium text-gray-800">Device Breakdown</h2>
 
       {/* Donut chart */}
       <ResponsiveContainer width="100%" height={180}>
