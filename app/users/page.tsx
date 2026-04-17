@@ -3,6 +3,7 @@ import { User, UserCheck, UserPlus, Users } from "lucide-react";
 import UsersOverTime from "../components/usersovertime";
 import WorldMap from "../components/Userbycountry";
 import Usergrowth from "../components/Usergrowth";
+import RetentionChurn from "../components/retention";
 
 export default function users(){
 
@@ -28,6 +29,11 @@ export default function users(){
                          <div className="col-span-1 gap-3">
                                   <Usergrowth />
                                 </div>       
+              <div className="col-span-1 gap-3">
+                                  <RetentionChurn />
+                                </div>  
+
+                          
                  </div>
     </div>
 }
