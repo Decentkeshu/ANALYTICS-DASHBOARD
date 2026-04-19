@@ -1,4 +1,5 @@
 "use client"
+import Breakcard from "./Breakdown";
 import MrrCard from "./MRRcard";
 
 import { TrendingUp, BarChart2, Users, DollarSign, AlertCircle, Activity } from "lucide-react";
@@ -9,12 +10,13 @@ const stats = [
   {label : "Average Revenue Per user", value : "$148.60", change : 5.2, icon : AlertCircle},
 
 ]
-export default function State() {
-  return (
-    <div className="w-full">
-      <div className="grid grid-cols-4 gap-3">
-        {stats.map((s) => <MrrCard key={s.label} {...s} />)}
-      </div>
-    </div>
-  );
+export default function Breakstate (){
+    return<>
+        <div className="p-4 flex-1">
+                 <div className="grid grid-cols-4 gap-3">
+                     {stats.map((s ) => <Breakcard key={s.label} {...s}/>)}
+                   </div>
+                   
+            </div>
+    </>
 }

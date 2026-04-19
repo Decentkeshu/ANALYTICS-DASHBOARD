@@ -27,27 +27,27 @@ export default function MrrCard({ label, value, change, icon: Icon }: Props) {
   const data = generateData(change);
 
   return (
-    <div className="relative bg-gray-100 rounded-lg p-4 flex flex-col gap-2 hover:bg-purple-100 cursor-pointer border border-transparent transition">
+    <div className="bg-gray-100 rounded-lg p-4 flex flex-col gap-1 hover:bg-purple-100 cursor-pointer  border border-transparent flex-1 ">
 
-      {/* Icon */}
+     
       <div className="absolute top-3 right-3 p-2 bg-purple-200 rounded-full">
         <Icon className="w-5 h-5 text-purple-700" />
       </div>
 
-      {/* Label */}
+   
       <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 pr-10">
         {label}
       </p>
 
-      {/* Value */}
+     
       <p className="text-2xl font-semibold text-gray-900">{value}</p>
 
-      {/* Change */}
+    
       <p className={`text-sm font-medium ${isUp ? "text-emerald-600" : "text-red-500"}`}>
         {isUp ? "▲" : "▼"} {Math.abs(change)}% vs last month
       </p>
 
-      {/* 🔥 Mini Chart */}
+     
       <div className="h-12 w-full mt-2">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={data}>
