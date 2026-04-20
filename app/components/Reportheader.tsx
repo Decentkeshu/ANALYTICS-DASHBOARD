@@ -8,8 +8,8 @@ export default function ReportHeader(){
 </div>
 </div>
 
-<button className="flex items-center gap-2 border rounded-lg px-3 py-2 text-sm"> <Download size = {16} />imports</button>
-<button className="flex items-center gap-2 border rounded-lg px-3 py-2 text-sm"> <Calendar size = {16} />schedule</button>
+<button className="flex items-center gap-2 border rounded-lg px-3 py-2 text-sm"> <Download size = {16} />Imports</button>
+<button className="flex items-center gap-2 border rounded-lg px-3 py-2 text-sm"> <Calendar size = {16} />Schedule</button>
 <button className="flex items-center gap-2 border rounded-lg px-3 py-2 text-sm"> <Plus size = {16}/>  New Report</button>
     </div>
 }   

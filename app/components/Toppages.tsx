@@ -66,7 +66,7 @@ export default function TopPages (){
               <span className={`text-xs px-2 py-1 rounded-full font-medium ${getBounceStyle(Pages.bouncerate)}`}>
                {Pages.bouncerate}%
             </span>
-              </td>
+              </td> 
                    <td>
   <div className="w-20 h-1.5 bg-gray-200 rounded-full overflow-hidden">
     <div

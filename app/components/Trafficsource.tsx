@@ -44,16 +44,16 @@ export default function AcquisitionChannels() {
   return (
     <div className="border border-gray-200 rounded-xl p-5 flex flex-col gap-4 bg-gray-100 h-91">
 
-      {/* Header */}
+   
       <div className="flex items-center justify-between">
         <h2 className="text-sm font-medium text-gray-800">Top acquisition channels</h2>
         <span className="text-xs text-gray-400">Last 30 days</span>
       </div>
 
-      {/* Chart + Legend side by side */}
+  
       <div className="flex items-center gap-4">
 
-        {/* Donut */}
+      
         <div className="relative shrink-0" style={{ width: 160, height: 160 }}>
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
@@ -74,7 +74,7 @@ export default function AcquisitionChannels() {
               <Tooltip content={<CustomTooltip />} />
             </PieChart>
           </ResponsiveContainer>
-          {/* Center label */}
+        
           <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
             <span className="text-lg font-semibold text-gray-800">
               {(totalUsers / 1000).toFixed(0)}k
@@ -83,7 +83,7 @@ export default function AcquisitionChannels() {
           </div>
         </div>
 
-        {/* Channel rows */}
+      
         <div className="flex flex-col gap-2 flex-1 min-w-0">
           {data.map((d) => {
             const trend = trendMap[d.channel]

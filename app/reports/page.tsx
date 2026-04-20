@@ -1,7 +1,9 @@
 import Reportspage from "./reports_page";
+import Reportslist from "../components/reports";
 import Reportcard from "../components/Reportscard";
 import { TrendingUp, BarChart2, Users, DollarSign, AlertCircle, Activity } from "lucide-react";
 import ReportHeader from "../components/Reportheader";
+import ExportActivityChart from "../components/barchart";
 const stats = [
   {label : "Total Revenue" , value : "$84,320" , change : 12.4},
   {label : "Total sales", value : "1,284", change : 8.1},
@@ -25,5 +27,11 @@ export default function Reports(){
         {stats.map((s, i ) => <Reportcard key={s.label} {...s}/>)}
       </div>
        <Reportspage/>
+       <div className=" col-span-1">  
+         <ExportActivityChart/>
+       </div>
+       <div className=" col-span-1">  
+         <Reportslist/>
+       </div>
       </div>
 }
