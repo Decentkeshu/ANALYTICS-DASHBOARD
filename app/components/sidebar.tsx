@@ -1,6 +1,6 @@
 "use client"
 import { usePathname,useRouter } from "next/navigation"
-import { LayoutDashboard,BarChart2,Users,DollarSign,FileText,Settings } from "lucide-react"
+import { LayoutDashboard,BarChart2,Users,DollarSign,FileText,Settings , Info} from "lucide-react"
 
 
 const navItems = [
@@ -9,7 +9,7 @@ const navItems = [
     {label : "Users", icon : Users , href : "/users"},
     {label : "Revenue" , icon : DollarSign , href : "/revenue"},
     {label : "Reports" , icon : FileText , href : "/reports"},
-    {label : "Settings", icon : Settings , href : "/settings"}
+    {label : "About", icon : Info , href : "/About"}
 ]
 export default function Sidebar({ isopen }: { isopen: boolean }){
     const pathname = usePathname()

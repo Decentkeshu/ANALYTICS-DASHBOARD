@@ -62,7 +62,7 @@ export default function Reportslist() {
   }, [search, plan, status]);
 
   return (
-    <div className="border border-gray-200 rounded-xl p-5 flex flex-col gap-4 bg-gray-100 flex-1 mt-4">
+    <div className=" rounded-xl p-5 flex flex-col gap-4 bg-gray-100 flex-1 mt-4">
       <div className="max-w-5xl mx-auto">
 
        
@@ -103,7 +103,7 @@ export default function Reportslist() {
         </div>
 
      
-        <div className="border rounded-xl bg-white overflow-hidden flex flex-1">
+        <div className=" rounded-xl bg-gray-100  flex flex-1">
           <table className="w-full text-sm">
             <thead className="bg-gray-100 text-gray-500">
               <tr>
