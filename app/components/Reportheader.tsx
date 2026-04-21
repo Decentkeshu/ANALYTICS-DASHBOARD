@@ -1,7 +1,7 @@
 "use client"
 import { Download, Plus, Calendar, Upload, RefreshCw, Trash2 } from "lucide-react"
 export default function ReportHeader(){
-    return<div className="flex items-center justify-between flex-wrap  bg-gray-100 p-2 mb-3">
+    return<div style={{ background: "var(--bg)", color: "var(--text)" }} className="flex items-center justify-between flex-wrap  bg-gray-100 p-2 mb-3 border border-gray-200">
     <div > 
     <div className="text-lg">Reports</div>
     <div className="text-xs">Generate, schedule, and export reports across your workspace.

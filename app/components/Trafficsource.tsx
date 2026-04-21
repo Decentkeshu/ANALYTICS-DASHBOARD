@@ -23,7 +23,7 @@ const CustomTooltip = ({ active, payload }: TooltipProps<number, string>) => {
   if (active && payload && payload.length) {
     const d = payload[0].payload
     return (
-      <div className="bg-gray-900 text-white text-xs rounded-lg px-3 py-2 shadow-lg">
+      <div style={{ background: "var(--bg)", color: "var(--text)" }} className=" border border-gray-200 text-xs rounded-lg px-3 py-2 shadow-lg">
         <p className="font-medium mb-1">{d.channel}</p>
         <p style={{ color: d.color }}>{d.users.toLocaleString()} users — {d.percentage}%</p>
       </div>
@@ -42,7 +42,7 @@ const trendMap: Record<string, { diff: string; up: boolean }> = {
 
 export default function AcquisitionChannels() {
   return (
-    <div className="border border-gray-200 rounded-xl p-5 flex flex-col gap-4 bg-gray-100 h-91">
+    <div className="border border-gray-200 rounded-xl p-5 flex flex-col gap-4  h-91">
 
    
       <div className="flex items-center justify-between">

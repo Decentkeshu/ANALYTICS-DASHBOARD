@@ -28,7 +28,7 @@ const statusStyles: Record<order["status"], string> = {
 
 export default function RecordOrders (){
     return (
-        <div className="bg-gray-100 border border-gray-200 rounded-xl p-5 flex flex-col gap-2 h-105   ">
+        <div style={{ background: "var(--bg)", color: "var(--text)" }} className="bg-gray-100 border border-gray-200 rounded-xl p-5 flex flex-col gap-2 h-105   ">
             <div className="flex items-center justify-between">
                 <h2 className="text-sm font-medium text-gray-800">Recent Orders</h2>
                 <button className="text-xs text-purple-600 hover:text-purple-800 transition-colors cursor-pointer">

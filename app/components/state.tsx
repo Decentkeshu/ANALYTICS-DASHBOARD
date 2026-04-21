@@ -11,8 +11,8 @@ const stats = [
 ]
 export default function State() {
   return (
-    <div className="w-full">
-      <div className="grid grid-cols-4 gap-3">
+    <div style={{ background: "var(--bg)", color: "var(--text)" }}  className="w-full ">
+      <div className="grid grid-cols-4 gap-3 ">
         {stats.map((s) => <MrrCard key={s.label} {...s} />)}
       </div>
     </div>

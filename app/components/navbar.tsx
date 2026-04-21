@@ -62,7 +62,7 @@ export default function Navigation ({ ontoggle }: { ontoggle: () => void }){
     </div>
     <div className="pipe">|</div>
     <div className="notification">
-        <Bell size={27} ></Bell>
+        <Bell size={27} color="gray" style={{backgroundColor : "grey"}} ></Bell>
         {notification > 0 && (
             <span className="notif-count">{notification > 9 ? "9+" : notification}</span>
         )}

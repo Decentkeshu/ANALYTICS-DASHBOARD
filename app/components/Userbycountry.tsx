@@ -24,7 +24,7 @@ countryData.forEach(c => {
 
 export default function WorldMap() {
   return (
-    <div className="border border-gray-200 rounded-xl p-5 bg-gray-100 w-full">
+    <div style={{ background: "var(--bg)", color: "var(--text)" }} className="border border-gray-200 rounded-xl p-5 bg-gray-100 w-full">
       
       {/* TITLE */}
       <h2 className="text-lg font-semibold mb-4">Users by Country</h2>

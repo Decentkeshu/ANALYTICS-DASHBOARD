@@ -12,7 +12,7 @@ const formatTooltip = (value: number) => `${value}%`
 
 export default function SalesByCategory() {
   return (
-    <div className=" bg-gray-100 border border-gray-200 rounded-xl p-5 flex flex-col gap-4 h-75">
+    <div style={{ background: "var(--bg)", color: "var(--text)" }} className=" bg-gray-100 border border-gray-200 rounded-xl p-5 flex flex-col gap-4 h-75">
       {/* Header */}
       <h2 className="text-sm font-medium text-gray-800">Sales by category</h2>
 

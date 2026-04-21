@@ -20,7 +20,7 @@ type Props = {
 }
 export default function Reportkpi({ label, description, icon: Icon, lastRun, isScheduled }: Props) {
   return (
-    <div className= " rounded-xl p-5 flex flex-col gap-4 bg-gray-100 mt-3  hover:bg-purple-100 cursor-pointer  border border-transparent">
+    <div style={{ background: "var(--bg)", color: "var(--text)" }} className= " rounded-xl p-5 flex flex-col gap-4  mt-3  hover:bg-purple-100 cursor-pointer  border border-gray-200">
 
       <div className="flex items-center justify-between">
         <div className="p-2 rounded-lg bg-blue-50">

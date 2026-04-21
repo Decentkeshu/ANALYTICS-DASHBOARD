@@ -12,7 +12,7 @@ const stats = [
 ]
 export default function Breakstate (){
     return<>
-        <div className="p-4 flex-1">
+        <div style={{ background: "var(--bg)", color: "var(--text)" }} className="p-4 flex-1">
                  <div className="grid grid-cols-4 gap-3">
                      {stats.map((s ) => <Breakcard key={s.label} {...s}/>)}
                    </div>

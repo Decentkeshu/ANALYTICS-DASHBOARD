@@ -23,7 +23,7 @@ export default function SettingsHeader({ onChange }: Props) {
   }
 
   return (
-    <div className="flex items-center justify-between flex-wrap  bg-gray-100 p-2">
+    <div style={{ background: "var(--bg)", color: "var(--text)" }} className="flex items-center justify-between flex-wrap  bg-gray-100 p-2">
 
   
       <div className="flex">

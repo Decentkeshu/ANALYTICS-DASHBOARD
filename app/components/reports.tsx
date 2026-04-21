@@ -75,18 +75,18 @@ export default function Reportslist() {
   const paginated  = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   return (
-    <div className="rounded-xl p-5 flex flex-col gap-4 bg-gray-100 flex-1 mt-4 w-full">
+    <div style={{ background: "var(--bg)", color: "var(--text)" }} className="rounded-xl p-5 flex flex-col gap-4 bg-gray-100 flex-1 mt-4 w-full border  border-gray-200 ">
 
       {/* Filters */}
       <div className="flex flex-wrap gap-2 items-center w-full">
         <input
           placeholder="Search customers..."
-          className="flex-1 min-w-[200px] bg-[#efefeb] border border-gray-300 rounded-lg px-3 py-2 text-sm outline-none"
+          className="flex-1 min-w-[200px]  border border-gray-300 rounded-lg px-3 py-2 text-sm outline-none"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
         <select
-          className="bg-[#efefeb] border rounded-lg px-3 py-2 text-sm"
+          className=" border rounded-lg px-3 py-2 text-sm"
           value={plan}
           onChange={(e) => setPlan(e.target.value)}
         >
@@ -96,7 +96,7 @@ export default function Reportslist() {
           <option>Starter</option>
         </select>
         <select
-          className="bg-[#efefeb] border rounded-lg px-3 py-2 text-sm"
+          className=" border rounded-lg px-3 py-2 text-sm"
           value={status}
           onChange={(e) => setStatus(e.target.value)}
         >
@@ -107,18 +107,18 @@ export default function Reportslist() {
           <option>Churned</option>
         </select>
     
-        <button className="border px-3 py-2 rounded-lg text-sm bg-white hover:bg-gray-100">
+        <button className="border px-3 py-2 rounded-lg text-sm  ">
           Export CSV
         </button>
-        <button className="bg-black text-white px-4 py-2 rounded-lg text-sm">
+        <button className="bg-black text-white px-4 py-2 rounded-lg text-sm border">
           Generate report
         </button>
       </div>
 
       {/* Table — full width, no max-w constraint */}
-      <div className="w-full overflow-x-auto rounded-xl bg-white">
+      <div  style={{ background: "var(--bg)", color: "var(--text)" }} className="w-full overflow-x-auto rounded-xl ">
         <table className="w-full text-sm">
-          <thead className="bg-gray-50 text-gray-500 border-b">
+          <thead className=" text-gray-500 border-b">
             <tr>
               <th className="text-left p-3">Company</th>
               <th className="text-left p-3">Plan</th>
@@ -130,10 +130,10 @@ export default function Reportslist() {
           </thead>
           <tbody>
             {paginated.map((r, i) => (
-              <tr key={i} className="border-t hover:bg-gray-50 transition-colors">
+              <tr key={i} className="border-t  transition-colors">
                 <td className="p-3">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-xs font-semibold shrink-0">
+                    <div className="w-8 h-8 rounded-full  flex items-center justify-center text-xs font-semibold shrink-0">
                       {r.initials}
                     </div>
                     <div>
@@ -143,7 +143,7 @@ export default function Reportslist() {
                   </div>
                 </td>
                 <td className="p-3">
-                  <span className="px-2 py-1 text-xs rounded-full border bg-gray-50">
+                  <span className="px-2 py-1 text-xs rounded-full border ">
                     {r.plan}
                   </span>
                 </td>
@@ -156,7 +156,7 @@ export default function Reportslist() {
                 <td className="p-3 text-gray-500">{r.joined}</td>
                 <td className="p-3 min-w-[100px]">
                   <div className="text-xs text-gray-500 mb-1">{r.usage}%</div>
-                  <div className="h-1.5 bg-gray-200 rounded-full">
+                  <div className="h-1.5  rounded-full">
                     <div
                       className="h-1.5 bg-green-500 rounded-full transition-all"
                       style={{ width: `${r.usage}%` }}

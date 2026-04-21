@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <div className="min-h-screen bg-gray-100 px-8 py-10">
+    <div style={{ background: "var(--bg)", color: "var(--text)" }} className="min-h-screen bg-gray-100 px-8 py-10">
 
       <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-blue-500 to-indigo-500" />
 

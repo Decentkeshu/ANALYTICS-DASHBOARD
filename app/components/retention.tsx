@@ -43,7 +43,7 @@ export default function RetentionChurn() {
   const churnDiff = +(latest.churn - prev.churn).toFixed(1)
 
   return (
-    <div className="border border-gray-200 rounded-xl p-5 flex flex-col gap-4 bg-gray-100 mt-3">
+    <div style={{ background: "var(--bg)", color: "var(--text)" }} className="border border-gray-200 rounded-xl p-5 flex flex-col gap-4 bg-gray-100 mt-3">
 
      
       <div className="flex items-center justify-between">

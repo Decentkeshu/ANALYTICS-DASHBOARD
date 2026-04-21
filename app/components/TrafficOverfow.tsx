@@ -34,7 +34,7 @@ const formatTooltip = (value: number) => value.toLocaleString()
 
 export default function Totaloverview (){
     return<>
-        <div className="border border-gray-200 rounded-xl p-5 flex flex-col gap-4 bg-gray-100 h-75">
+        <div style={{ background: "var(--bg)", color: "var(--text)" }} className="border border-gray-200 rounded-xl p-5 flex flex-col gap-4 bg-gray-100 h-75">
              <div className="flex items-center justify-between">
         <h2 className="text-sm font-medium text-gray-800">Traffic Overflow</h2>
         <h4 className="text-sm font-medium text-gray-800">Daily visitors for last 30 days.</h4>

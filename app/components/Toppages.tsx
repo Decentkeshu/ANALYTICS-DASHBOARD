@@ -31,7 +31,7 @@ export default function TopPages (){
 }
 
     return<>
-        <div className="bg-gray-100 border border-gray-200 rounded-xl p-5 flex flex-col gap-4 w-full mt-3 ">
+        <div style={{ background: "var(--bg)", color: "var(--text)" }} className="bg-gray-100 border border-gray-200 rounded-xl p-5 flex flex-col gap-4 w-full mt-3 ">
            <div className="flex items-center justify-between">
                <h2 className="text-sm font-medium text-gray-800">Top Pages</h2>
                <button className="text-xs text-purple-600 hover:text-purple-800 transition-colors cursor-pointer">
@@ -42,13 +42,13 @@ export default function TopPages (){
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-gray-100">
-              <th className="text-left text-xs font-medium text-gray-400 pb-3 pr-4">#</th>
-              <th className="text-left text-xs font-medium text-gray-400 pb-3 pr-4">Page</th>
-              <th className="text-left text-xs font-medium text-gray-400 pb-3 pr-4">Views</th>
-              <th className="text-left text-xs font-medium text-gray-400 pb-3 pr-4">Visitors</th>
-              <th className="text-left text-xs font-medium text-gray-400 pb-3">Avgtime</th>
-              <th className="text-left text-xs font-medium text-gray-400 pb-3">bouncerate</th>
-              <th className="text-left text-xs font-medium text-gray-400 pb-3">Traffic</th>
+              <th className="text-left text-xs font-medium  pb-3 pr-4">#</th>
+              <th className="text-left text-xs font-medium  pb-3 pr-4">Page</th>
+              <th className="text-left text-xs font-medium  pb-3 pr-4">Views</th>
+              <th className="text-left text-xs font-medium  pb-3 pr-4">Visitors</th>
+              <th className="text-left text-xs font-medium  pb-3">Avgtime</th>
+              <th className="text-left text-xs font-medium  pb-3">bouncerate</th>
+              <th className="text-left text-xs font-medium  pb-3">Traffic</th>
               
             </tr>
           </thead> 
@@ -57,11 +57,11 @@ export default function TopPages (){
             <tr key={Pages.rank}
             className="border-b border-gray-50 hover:bg-gray-50 transition-colors cursor-pointer "
             >
-                <td className="py-3 pr-4 text-xs font-medium text-gray-700">{Pages.rank}</td>
-                <td className="py-3 pr-4 text-xs font-medium text-gray-700">{Pages.page}</td>
-                <td className="py-3 pr-4 text-xs font-medium text-gray-700">{Pages.views}</td>
-                <td className="py-3 pr-4 text-xs font-medium text-gray-700">{Pages.visitors}</td>
-                <td className="py-3 pr-4 text-xs font-medium text-gray-700">{Pages.Avgtime}</td>
+                <td className="py-3 pr-4 text-xs font-medium ">{Pages.rank}</td>
+                <td className="py-3 pr-4 text-xs font-medium ">{Pages.page}</td>
+                <td className="py-3 pr-4 text-xs font-medium ">{Pages.views}</td>
+                <td className="py-3 pr-4 text-xs font-medium ">{Pages.visitors}</td>
+                <td className="py-3 pr-4 text-xs font-medium ">{Pages.Avgtime}</td>
                 <td>
               <span className={`text-xs px-2 py-1 rounded-full font-medium ${getBounceStyle(Pages.bouncerate)}`}>
                {Pages.bouncerate}%

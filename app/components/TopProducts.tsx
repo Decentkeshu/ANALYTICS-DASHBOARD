@@ -22,7 +22,7 @@ const products: Product[] = [
 export default function TopProducts() {
 
   return (
-    <div className="bg-gray-100 border border-gray-200 rounded-xl p-5 flex flex-col gap-4 w-full h-105">
+    <div style={{ background: "var(--bg)", color: "var(--text)" }} className="bg-gray-100 border border-gray-200 rounded-xl p-5 flex flex-col gap-4 w-full h-105">
    
       <div className="flex items-center justify-between">
         <h2 className="text-sm font-medium text-gray-800">Top products</h2>

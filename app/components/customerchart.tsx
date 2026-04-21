@@ -144,7 +144,7 @@ export default function CustomerGrowthChart() {
   }, []);
 
   return (
-    <div className=" bg-gray-100 border border-gray-200 rounded-xl p-5 flex flex-col gap-4">
+    <div style={{ background: "var(--bg)", color: "var(--text)" }} className=" bg-gray-100 border border-gray-200 rounded-xl p-5 flex flex-col gap-4">
       {/* Legend */}
       <div className="flex gap-6 mb-4 text-sm text-gray-500">
         <span className="flex items-center gap-2">

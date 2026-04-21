@@ -20,9 +20,9 @@ const data = [
 
 export default function ExportActivityChart() {
   return (
-    <div className="border border-gray-200 rounded-xl p-5 flex flex-col gap-4 bg-gray-100 mt-4"> 
+    <div style={{ background: "var(--bg)", color: "var(--text)" }} className="border border-gray-200 rounded-xl p-5 flex flex-col gap-4 bg-gray-100 mt-4"> 
 
-      {/* Header */}
+     
       <div className="flex items-start justify-between mb-4">
         <div>
           <p className="text-sm font-medium">Export activity</p>
@@ -35,7 +35,7 @@ export default function ExportActivityChart() {
         </select>
       </div>
 
-      {/* Stat pills */}
+
       <div className="flex gap-3 mb-5">
         <div className="bg-muted/50 rounded-lg px-4 py-2">
           <p className="text-xs text-muted-foreground">Total exports</p>
@@ -51,7 +51,7 @@ export default function ExportActivityChart() {
         </div>
       </div>
 
-      {/* Chart */}
+   
       <ResponsiveContainer width="100%" height={200}>
         <BarChart data={data} barSize={28}>
           <CartesianGrid vertical={false} stroke="#e5e7eb" />
