@@ -1,24 +1,21 @@
 export default function About() {
   return (
-    <div className="min-h-screen bg-gray-100  px-8 py-10">
-      
-     
+    <div className="min-h-screen bg-gray-100 px-8 py-10">
+
       <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-blue-500 to-indigo-500" />
 
-     
-      <p className="text-indigo-400 text-xs tracking-[0.2em] font-mono uppercase mb-3">
+      <p className="text-indigo-500 text-xs tracking-[0.2em] font-mono uppercase mb-3">
         About
       </p>
-      <h1 className="text-3xl font-bold text-slate-100 leading-tight mb-2">
+      <h1 className="text-3xl font-bold text-gray-900 leading-tight mb-2">
         Empowering Small Businesses <br />
         with Data-Driven Decisions
       </h1>
-      <p className="text-slate-400 text-sm mb-6">
+      <p className="text-gray-500 text-sm mb-6">
         Real-time analytics & reporting — built for businesses like yours.
       </p>
       <div className="w-12 h-[2px] bg-gradient-to-r from-blue-500 to-indigo-500 rounded mb-8" />
 
-    
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
         {[
           {
@@ -39,19 +36,18 @@ export default function About() {
         ].map((card) => (
           <div
             key={card.title}
-            className="bg-[#1e2130] border border-[#2e3347] rounded-xl p-5"
+            className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm"
           >
             <div className="text-2xl mb-3">{card.icon}</div>
-            <h3 className="text-slate-100 font-semibold text-sm mb-1">
+            <h3 className="text-gray-800 font-semibold text-sm mb-1">
               {card.title}
             </h3>
-            <p className="text-slate-400 text-xs leading-relaxed">{card.desc}</p>
+            <p className="text-gray-500 text-xs leading-relaxed">{card.desc}</p>
           </div>
         ))}
       </div>
 
-    
-      <p className="text-indigo-400 text-xs tracking-[0.2em] font-mono uppercase mb-4">
+      <p className="text-indigo-500 text-xs tracking-[0.2em] font-mono uppercase mb-4">
         Core Values
       </p>
       <div className="space-y-3">
@@ -62,17 +58,16 @@ export default function About() {
         ].map((val, i) => (
           <div key={i} className="flex items-start gap-3">
             <div className={`w-2 h-2 mt-1 rounded-sm flex-shrink-0 ${val.color}`} />
-            <p className="text-slate-400 text-sm">{val.text}</p>
+            <p className="text-gray-600 text-sm">{val.text}</p>
           </div>
         ))}
       </div>
 
-    
-      <div className="mt-10 pt-6 border-t border-[#2e3347] flex items-center justify-between">
-        <p className="text-slate-500 text-xs">
+      <div className="mt-10 pt-6 border-t border-gray-200 flex items-center justify-between">
+        <p className="text-gray-400 text-xs">
           © {new Date().getFullYear()} MATRIX. All rights reserved.
         </p>
-        <span className="text-xs font-mono text-indigo-400 bg-[#1e2130] border border-[#2e3347] px-3 py-1 rounded-full">
+        <span className="text-xs font-mono text-indigo-500 bg-white border border-gray-200 px-3 py-1 rounded-full">
           v1.0.0
         </span>
       </div>

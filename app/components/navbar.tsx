@@ -42,7 +42,7 @@ export default function Navigation ({ ontoggle }: { ontoggle: () => void }){
   <div className="hamburger-line" />
   <div className="hamburger-line" />
 </div>
-<div className="logo">Metrix</div>
+<div className="logo">Matrix</div>
 <div className="search-box">
     <Search size={18} color="#050404" />
     <input 
