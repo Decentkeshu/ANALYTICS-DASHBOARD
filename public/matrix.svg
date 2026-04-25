@@ -1,0 +1,31 @@
+<svg width="400" height="400" viewBox="0 0 400 400" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Matrix M logo</title>
+  <desc>Capital letter M inside a circle, styled as a logo</desc>
+
+  <!-- Background circle -->
+  <circle cx="200" cy="200" r="160" fill="#e8f4fd" />
+
+  <!-- Outer ring -->
+  <circle cx="200" cy="200" r="160" fill="none" stroke="#1a1a2e" stroke-width="7" />
+
+  <!-- Inner decorative ring -->
+  <circle cx="200" cy="200" r="145" fill="none" stroke="#1a1a2e" stroke-width="2" opacity="0.3" />
+
+  <!-- Capital M path -->
+  <path fill="#1a1a2e" d="
+    M 118 290
+    L 118 110
+    L 155 110
+    L 200 200
+    L 245 110
+    L 282 110
+    L 282 290
+    L 252 290
+    L 252 175
+    L 214 258
+    L 186 258
+    L 148 175
+    L 148 290
+    Z
+  " />
+</svg>
