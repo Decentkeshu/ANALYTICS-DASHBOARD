@@ -5,7 +5,7 @@ type StatusVariant = "scheduled" | "draft" | "completed"
 
 type Props = {
   label: string
-  // value: string
+
   icon: LucideIcon
 
   description?: string

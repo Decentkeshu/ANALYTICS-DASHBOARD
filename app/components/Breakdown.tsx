@@ -6,7 +6,7 @@ type Props = {
   value: string;
   change: number;
   icon: React.ElementType;
-  percent?: number; // % of total MRR
+  percent?: number; 
 };
 
 export default function Breakcard({

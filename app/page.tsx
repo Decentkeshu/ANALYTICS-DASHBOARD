@@ -10,11 +10,12 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    if (isSignedIn) router.push("/dashboard");
+    if (isSignedIn) router.push("/Dashboard");
   }, [isSignedIn, router]);
 
   return (
-    <main className="min-h-screen bg-[#060910] text-slate-200 font-mono overflow-x-hidden  flex-1">
+   
+    <main className="min-h-screen bg-[#060910] text-slate-200 font-mono overflow-x-hidden  flex-1 ">
 
       
       <div
@@ -99,17 +100,17 @@ export default function Home() {
 
     
       <section id="features" className="relative z-10 max-w-7xl mx-auto px-8 py-28">
-        <div className="text-center mb-20">
+        <div className="text-center mb-20 h-20">
           <h1 className="inline-flex items-center gap-2 border border-sky-500/[0.12] bg-sky-500/[0.04] text-sky-500 text-[9px] px-4 py-[5px] rounded-full mb-7 tracking-[0.25em] uppercase">
             MATRIX
           </h1>
-          <h2
-            className="font-extrabold text-[42px] text-white tracking-[-1.2px] mb-5 leading-[1.1]"
+          <h1
+            className="font-extrabold text-[42px] text-white tracking-[-1.2px] mb-5 leading-[1.1] "
             style={{ fontFamily: "Syne, sans-serif" }}
           >
             Everything you need.<br />
             <span className="text-gray-600">Nothing you don't.</span>
-          </h2>
+          </h1>
           <p className="text-gray-600 text-[13px] max-w-[380px] mx-auto leading-[1.9] font-sans font-normal tracking-normal">
             Built for analysts, operators, and founders who need clarity — not complexity.
           </p>
@@ -119,7 +120,7 @@ export default function Home() {
       </section>
 
     
-      <section className="relative z-10 border-t border-white/[0.05] bg-[#080c13]/50 py-28 text-center">
+      <section className="relative z-10 border-t border-white/[0.05] bg-[#080c13]/50 py-28 text-center ">
         <h2
           className="font-extrabold text-[54px] text-white tracking-[-1.5px] mb-4 leading-[1.08]"
           style={{ fontFamily: "Syne, sans-serif" }}
@@ -152,12 +153,12 @@ export default function Home() {
           </span>
         </div>
         <div className="flex items-center justify-center gap-9 mb-6 text-[9.5px] text-gray-700 tracking-[0.2em] uppercase">
-          <Link href="/dashboard" className="hover:text-[#00ff9f] transition-colors duration-300">Dashboard</Link>
-          <Link href="/analytics" className="hover:text-[#00ff9f] transition-colors duration-300">Analytics</Link>
-          <Link href="/users"     className="hover:text-[#00ff9f] transition-colors duration-300">Users</Link>
-          <Link href="/revenue"   className="hover:text-[#00ff9f] transition-colors duration-300">Revenue</Link>
-          <Link href="/reports"   className="hover:text-[#00ff9f] transition-colors duration-300">Reports</Link>
-          <Link href="/settings"  className="hover:text-[#00ff9f] transition-colors duration-300">Settings</Link>
+          <Link href="/Dashboard" className="hover:text-[#00ff9f] transition-colors duration-300">Dashboard</Link>
+          <Link href="/Analytics" className="hover:text-[#00ff9f] transition-colors duration-300">Analytics</Link>
+          <Link href="/Users"     className="hover:text-[#00ff9f] transition-colors duration-300">Users</Link>
+          <Link href="/Revenue"   className="hover:text-[#00ff9f] transition-colors duration-300">Revenue</Link>
+          <Link href="/Reports"   className="hover:text-[#00ff9f] transition-colors duration-300">Reports</Link>
+          <Link href="/Setting"  className="hover:text-[#00ff9f] transition-colors duration-300">Settings</Link>
         </div>
         <p className="text-gray-700 text-[9.5px] tracking-[0.2em] uppercase">© 2026 MATRIX. ALL RIGHTS RESERVED.</p>
       </footer>

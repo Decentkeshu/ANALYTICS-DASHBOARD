@@ -20,13 +20,13 @@ const data = [
     {date : "jan 7", NewUsers : "1300", ToatalUsers : "3300"},
     {date : "jan 8", NewUsers : "800", ToatalUsers : "3800"},
     {date : "jan 9", NewUsers : "1000", ToatalUsers : "3000"},
-    {date : "jan 10", NewUsers : "700", ToatalUsers : "3700"},
-    {date : "jan 11", NewUsers : "1500", ToatalUsers : "3500"},
-    {date : "jan 12", NewUsers : "1100", ToatalUsers : "3100"},
-    {date : "jan 13", NewUsers : "1200", ToatalUsers : "3200"},
-    {date : "jan 14", NewUsers : "700", ToatalUsers : "3700"},
-    {date : "jan 15", NewUsers : "1800", ToatalUsers : "3800"},
-    {date : "jan 16", NewUsers : "1200", ToatalUsers : "3200"},
+    {date : "jan 10",NewUsers : "700", ToatalUsers : "3700"},
+    {date : "jan 11",NewUsers : "1500", ToatalUsers : "3500"},
+    {date : "jan 12",NewUsers : "1100", ToatalUsers : "3100"},
+    {date : "jan 13",NewUsers : "1200", ToatalUsers : "3200"},
+    {date : "jan 14",NewUsers : "700", ToatalUsers : "3700"},
+    {date : "jan 15",NewUsers : "1800", ToatalUsers : "3800"},
+    {date : "jan 16",NewUsers : "1200", ToatalUsers : "3200"},
 ]
 
 const formatYAxis = (value: number) => `${(value / 1000).toFixed(0)}k`

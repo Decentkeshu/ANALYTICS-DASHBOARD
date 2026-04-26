@@ -67,7 +67,7 @@ export default function Navigation({ ontoggle }: { ontoggle: () => void }) {
             <div className="pipe">|</div>
 
             <div className="notification">
-                <Bell size={27} color="gray" style={{ backgroundColor: "grey" }} />
+                <Bell size={27} color="gray" style={{ backgroundColor: "black",  }} />
                 {notification > 0 && (
                     <span className="notif-count">
                         {notification > 9 ? "9+" : notification}
@@ -75,9 +75,6 @@ export default function Navigation({ ontoggle }: { ontoggle: () => void }) {
                 )}
             </div>
 
-            <div className="pipe">|</div>
-
-            {/* User Profile Section */}
             {isSignedIn ? (
                 <div className="user-profile">
                     <UserButton

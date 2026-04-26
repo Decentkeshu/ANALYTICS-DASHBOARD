@@ -10,7 +10,7 @@ const data = [
   { date: "Apr 11", exports: 2 },
   { date: "Apr 12", exports: 3 },
   { date: "Apr 13", exports: 4 },
-  { date: "Apr 14", exports: 8 },  // peak
+  { date: "Apr 14", exports: 8 },  
   { date: "Apr 15", exports: 3 },
   { date: "Apr 16", exports: 5 },
   { date: "Apr 17", exports: 4 },

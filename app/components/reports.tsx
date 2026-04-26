@@ -77,7 +77,7 @@ export default function Reportslist() {
   return (
     <div style={{ background: "var(--bg)", color: "var(--text)" }} className="rounded-xl p-5 flex flex-col gap-4 bg-gray-100 flex-1 mt-4 w-full border  border-gray-200 ">
 
-      {/* Filters */}
+     
       <div className="flex flex-wrap gap-2 items-center w-full">
         <input
           placeholder="Search customers..."
@@ -115,7 +115,7 @@ export default function Reportslist() {
         </button>
       </div>
 
-      {/* Table — full width, no max-w constraint */}
+   
       <div  style={{ background: "var(--bg)", color: "var(--text)" }} className="w-full overflow-x-auto rounded-xl ">
         <table className="w-full text-sm">
           <thead className=" text-gray-500 border-b">
@@ -177,7 +177,7 @@ export default function Reportslist() {
         </table>
       </div>
 
-      {/* Pagination */}
+  
       <div className="flex items-center justify-between text-sm text-gray-500">
         <span>
           Showing {filtered.length === 0 ? 0 : (page - 1) * PAGE_SIZE + 1}–

@@ -29,17 +29,17 @@ export default function SettingsHeader({ onChange }: Props) {
       <div className="flex">
         <h1 className="text-base font-medium text-gray-800">About</h1>
         
-        {/* <p className="text-xs text-gray-400 mt-0.5">Track</p> */}
+       
       </div>
 
       <div className="flex items-center gap-1">
-        {/* <Calendar size={14} className="text-gray-400" /> */}
+       
         <div className="flex items-center bg-gray-100 rounded-lg p-1 gap-1">
 
           <div className="flex ">  
            <Settings size={24}  className="mr-5"/>
 
-      {/* Bell with notification badge */}
+      
       <div style={{ position: "relative" }}>
         <Bell size={24} className="mr-5" />
         <span className="badge" />

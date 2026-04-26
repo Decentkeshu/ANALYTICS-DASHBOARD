@@ -31,8 +31,8 @@ const formatTooltip = (value: number) => `$${value.toLocaleString()}`
 
 export default function RevenueOverview() {
   return (
-    <div style={{ background: "var(--bg)", color: "var(--text)" }} className="border border-gray-200 rounded-xl p-5 flex flex-col gap-4 bg-gray-100 h-75">
-      {/* Header */}
+    <div style={{ background: "var(--bg)", color: "var(--text)" }} className="border border-gray-200 rounded-xl p-5 flex flex-col gap-4 bg-gray-100 h-82">
+  
       <div className="flex items-center justify-between">
         <h2 className="text-sm font-medium text-gray-800">Revenue overview</h2>
         <div className="flex items-center gap-4">
@@ -47,7 +47,6 @@ export default function RevenueOverview() {
         </div>
       </div>
 
-      {/* Chart */}
       <ResponsiveContainer width="100%" height={220}>
         <LineChart data={data} margin={{ top: 4, right: 8, left: 0, bottom: 0 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />

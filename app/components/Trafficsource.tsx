@@ -52,7 +52,7 @@ export default function AcquisitionChannels() {
 
   
       <div className="flex items-center gap-4">
-
+  
       
         <div className="relative shrink-0" style={{ width: 160, height: 160 }}>
           <ResponsiveContainer width="100%" height="100%">
@@ -109,7 +109,7 @@ export default function AcquisitionChannels() {
         </div>
       </div>
 
-      {/* Bar breakdown */}
+     
       <div className="flex flex-col gap-2">
         {data.map((d) => (
           <div key={d.channel} className="flex items-center gap-3">
