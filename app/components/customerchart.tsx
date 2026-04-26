@@ -65,18 +65,23 @@ const options: ChartOptions<"line"> = {
   responsive: true,
   maintainAspectRatio: false,
   interaction: { mode: "index", intersect: false },
-  plugins: {
-    legend: { display: false },
-    tooltip: {
-      callbacks: {
-        label: (ctx) => {
-          if (ctx.datasetIndex === 0)
-            return `  Customers: ${ctx.parsed.y.toLocaleString()}`;
-          return `  Churn rate: ${ctx.parsed.y.toFixed(1)}%`;
-        },
+ plugins: {
+  legend: { display: false },
+  tooltip: {
+    callbacks: {
+      label: (ctx) => {
+        const y = ctx.parsed.y;
+        if (y == null) return "";
+
+        if (ctx.datasetIndex === 0) {
+          return `Customers: ${y.toLocaleString()}`;
+        }
+
+        return `Churn rate: ${y.toFixed(1)}%`;
       },
     },
   },
+},
   scales: {
     x: {
       grid: { color: "rgba(136,135,128,0.12)" },
@@ -84,7 +89,7 @@ const options: ChartOptions<"line"> = {
       title: {
         display: true,
         text: "Month",
-        font: { size: 12 },
+        font: { size: 12 },  
       },
     },
     yLeft: {

@@ -1,4 +1,5 @@
 "use client"
+import { ValueType, NameType } from "recharts/types/component/DefaultTooltipContent";
 import {
   LineChart,
   Line,
@@ -27,7 +28,25 @@ const data = [
 
 const formatYAxis = (value: number) => `$${(value / 1000).toFixed(0)}k`
 
-const formatTooltip = (value: number) => `$${value.toLocaleString()}`
+const formatTooltip = (
+  value: ValueType,
+  name: NameType,
+  _item: any,
+  _index: number,
+  _payload: any
+) => {
+  if (value == null) return "";
+
+  if (typeof value === "number") {
+    return value.toLocaleString();
+  }
+
+  if (Array.isArray(value)) {
+    return value.join(", ");
+  }
+
+  return value;
+};
 
 export default function RevenueOverview() {
   return (

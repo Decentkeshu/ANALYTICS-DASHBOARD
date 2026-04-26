@@ -1,5 +1,6 @@
 "use client"
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer , Line} from "recharts"
+import { ValueType, NameType } from "recharts/types/component/DefaultTooltipContent";
 
 const data = [
     {month : "JAN", value : 10000, Tvalue :15000 },
@@ -17,7 +18,15 @@ const data = [
 ]
 
 const formatYAxis = (value: number) => `${(value / 1000).toFixed(0)}k`
-const formatTooltip = (value: number) => value.toLocaleString()
+const formatTooltip = (value: any) => {
+  if (value == null) return "";
+
+  if (Array.isArray(value)) {
+    return value.join(", ");
+  }
+
+  return value.toLocaleString();
+};
 
 
 export default function Usergrowth() {

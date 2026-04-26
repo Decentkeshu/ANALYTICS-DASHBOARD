@@ -20,20 +20,41 @@ const data = [
   { month: "Apr", retention: 82, churn: 18 },
 ]
 
-const CustomTooltip = ({ active, payload, label }: TooltipProps<number, string>) => {
-  if (active && payload && payload.length) {
-    return (
-      <div className="bg-gray-900 text-white text-xs rounded-lg px-3 py-2 shadow-lg">
-        <p className="font-medium mb-1">{label}</p>
-        {payload.map((entry) => (
-          <p key={entry.name} style={{ color: entry.color }}>
-            {entry.name === "retention" ? "Retention" : "Churn"}: {entry.value}%
-          </p>
-        ))}
-      </div>
-    )
+// import { TooltipProps } from "recharts"
+
+type ChartEntry = {
+  name: string
+  value: number
+  color: string
+}
+
+const CustomTooltip = (
+  props: TooltipProps<number, string> & {
+    payload?: {
+      name: string
+      value: number
+      color?: string
+      payload: ChartEntry
+    }[]
+    label?: string
   }
-  return null
+) => {
+  const { active, payload, label } = props
+
+  if (!active || !payload || payload.length === 0) return null
+
+  return (
+    <div className="bg-gray-900 text-white text-xs rounded-lg px-3 py-2 shadow-lg">
+      <p className="font-medium mb-1">{label}</p>
+
+      {payload.map((entry, index) => (
+        <p key={index} style={{ color: entry.color }}>
+          {entry.name === "retention" ? "Retention" : "Churn"}:{" "}
+          {entry.value}%
+        </p>
+      ))}
+    </div>
+  )
 }
 
 export default function RetentionChurn() {

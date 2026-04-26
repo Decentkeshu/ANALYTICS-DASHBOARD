@@ -19,17 +19,39 @@ const data = [
 
 const totalUsers = data.reduce((sum, d) => sum + d.users, 0)
 
-const CustomTooltip = ({ active, payload }: TooltipProps<number, string>) => {
-  if (active && payload && payload.length) {
-    const d = payload[0].payload
-    return (
-      <div style={{ background: "var(--bg)", color: "var(--text)" }} className=" border border-gray-200 text-xs rounded-lg px-3 py-2 shadow-lg">
-        <p className="font-medium mb-1">{d.channel}</p>
-        <p style={{ color: d.color }}>{d.users.toLocaleString()} users — {d.percentage}%</p>
-      </div>
-    )
+
+
+type ChannelData = {
+  channel: string
+  users: number
+  percentage: number
+  color: string
+}
+
+const CustomTooltip = (
+  props: TooltipProps<number, string> & {
+    payload?: Array<{
+      payload: ChannelData
+    }>
   }
-  return null
+) => {
+  const { active, payload } = props
+
+  if (!active || !payload || payload.length === 0) return null
+
+  const d = payload[0].payload
+
+  return (
+    <div
+      style={{ background: "var(--bg)", color: "var(--text)" }}
+      className="border border-gray-200 text-xs rounded-lg px-3 py-2 shadow-lg"
+    >
+      <p className="font-medium mb-1">{d.channel}</p>
+      <p style={{ color: d.color }}>
+        {d.users.toLocaleString()} users — {d.percentage}%
+      </p>
+    </div>
+  )
 }
 
 const trendMap: Record<string, { diff: string; up: boolean }> = {

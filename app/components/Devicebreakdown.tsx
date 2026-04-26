@@ -23,8 +23,22 @@ const data = rawData.map((d) => ({
   percentage: Math.round((d.users / totalUsers) * 100),
 }))
 
-const CustomTooltip = ({ active, payload }: TooltipProps<number, string>) => {
+type DeviceData = {
+  device: string
+  users: number
+  percentage: number
+  color: string
+}
+
+const CustomTooltip = (
+  props: TooltipProps<number, string> & {
+    payload?: { payload: DeviceData }[]
+  }
+) => {
+  const { active, payload } = props
+
   const d = payload?.[0]?.payload
+
   if (!active || !d) return null
 
   return (

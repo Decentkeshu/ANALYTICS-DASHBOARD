@@ -71,7 +71,7 @@ export default function WorldMap() {
                   <span>{c.name}</span>
                 </div>
 
-         
+
                 <span className="font-semibold">
                   {c.users.toLocaleString()}
                 </span>

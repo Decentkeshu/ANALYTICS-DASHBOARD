@@ -27,7 +27,21 @@ const trendMap: Record<string, { diff: string; up: boolean }> = {
 
 const total = data.reduce((sum, d) => sum + d.value, 0)
 
-const CustomTooltip = ({ active, payload }: TooltipProps<number, string>) => {
+type ChartData = {
+  name: string
+  value: number
+  color: string
+}
+
+const CustomTooltip = (
+  props: TooltipProps<number, string> & {
+    payload?: Array<{
+      payload: ChartData
+    }>
+  }
+) => {
+  const { active, payload } = props
+
   const d = payload?.[0]?.payload
   if (!active || !d) return null
 
@@ -132,7 +146,7 @@ export default function SalesByCategory() {
         </div>
       </div>
 
-     
+      {/* Bottom Bars */}
       <div className="flex flex-col gap-2">
         {data.map((d) => (
           <div key={d.name} className="flex items-center gap-3">
