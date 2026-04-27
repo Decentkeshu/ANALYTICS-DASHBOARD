@@ -30,7 +30,10 @@ const data = [
 ]
 
 const formatYAxis = (value: number) => `${(value / 1000).toFixed(0)}k`
-const formatTooltip = (value: number) => value.toLocaleString()
+const formatTooltip = (value: number | string | Array<number | string> | undefined): [string, string] => [
+    value !== undefined ? Number(value).toLocaleString() : "0",
+    ""
+]
 
 export default function UsersOverTime (){
     return<>
@@ -67,7 +70,7 @@ export default function UsersOverTime (){
                   width={48}
                 />
                 <Tooltip
-                  formatter={formatTooltip}
+                  formatter={formatTooltip as any}
                   contentStyle={{
                     fontSize: "12px",
                     borderRadius: "8px",

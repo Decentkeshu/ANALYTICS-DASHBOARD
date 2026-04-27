@@ -21,7 +21,10 @@ const data = [
 ]
 
 const formatYAxis = (value: number) => `${(value / 1000).toFixed(0)}k`
-const formatTooltip = (value: number) => value.toLocaleString()
+const formatTooltip = (value: number | string | Array<number | string> | undefined): [string, string] => [
+    value !== undefined ? Number(value).toLocaleString() : "0",
+    "Users"
+]
 
 
 export default function Usergrowth() {
@@ -53,7 +56,7 @@ export default function Usergrowth() {
           <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
           <XAxis dataKey="date" />
           <YAxis tickFormatter={formatYAxis} />
-          <Tooltip formatter={formatTooltip} />
+         <Tooltip formatter={formatTooltip as any} />
 
           <Area
             type="monotone"
