@@ -1,5 +1,4 @@
 "use client"
-import { ValueType, NameType } from "recharts/types/component/DefaultTooltipContent";
 import {
   LineChart,
   Line,
@@ -7,7 +6,6 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
   ResponsiveContainer,
 } from "recharts"
 
@@ -28,30 +26,18 @@ const data = [
 
 const formatYAxis = (value: number) => `$${(value / 1000).toFixed(0)}k`
 
-const formatTooltip = (
-  value: ValueType,
-  name: NameType,
-  _item: any,
-  _index: number,
-  _payload: any
-) => {
-  if (value == null) return "";
-
-  if (typeof value === "number") {
-    return value.toLocaleString();
-  }
-
-  if (Array.isArray(value)) {
-    return value.join(", ");
-  }
-
-  return value;
-};
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const tooltipFormatter = (value: any, name: any) => [
+  `$${Number(value).toLocaleString()}`,
+  name === "revenue2024" ? "2024" : "2023",
+]
 
 export default function RevenueOverview() {
   return (
-    <div style={{ background: "var(--bg)", color: "var(--text)" }} className="border border-gray-200 rounded-xl p-5 flex flex-col gap-4 bg-gray-100 h-82">
-  
+    <div
+      style={{ background: "var(--bg)", color: "var(--text)" }}
+      className="border border-gray-200 rounded-xl p-5 flex flex-col gap-4 bg-gray-100 h-82"
+    >
       <div className="flex items-center justify-between">
         <h2 className="text-sm font-medium text-gray-800">Revenue overview</h2>
         <div className="flex items-center gap-4">
@@ -60,7 +46,7 @@ export default function RevenueOverview() {
             2024
           </span>
           <span className="flex items-center gap-1.5 text-xs text-gray-500">
-            <span className="w-3 h-0.5 bg-teal-400 inline-block rounded border-dashed" />
+            <span className="w-3 h-0.5 bg-teal-400 inline-block rounded" />
             2023
           </span>
         </div>
@@ -82,8 +68,8 @@ export default function RevenueOverview() {
             tickLine={false}
             width={48}
           />
+        
           <Tooltip
-            formatter={formatTooltip}
             contentStyle={{
               fontSize: "12px",
               borderRadius: "8px",
@@ -91,11 +77,12 @@ export default function RevenueOverview() {
               boxShadow: "none",
             }}
             labelStyle={{ color: "#374151", fontWeight: 500 }}
+            formatter={tooltipFormatter}
           />
           <Line
             type="monotone"
             dataKey="revenue2024"
-            name="2024"
+            name="revenue2024"
             stroke="#3b82f6"
             strokeWidth={2}
             dot={false}
@@ -104,7 +91,7 @@ export default function RevenueOverview() {
           <Line
             type="monotone"
             dataKey="revenue2023"
-            name="2023"
+            name="revenue2023"
             stroke="#2dd4bf"
             strokeWidth={2}
             strokeDasharray="5 4"

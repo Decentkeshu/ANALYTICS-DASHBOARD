@@ -31,7 +31,7 @@ const formatTooltip = (value: any) => {
 
 export default function Usergrowth() {
   return (
-    <div style={{ background: "var(--bg)", color: "var(--text)" }} className="border border-gray-200 rounded-xl p-5 flex flex-col gap-2 bg-gray-100 h-75 mt-4">
+    <div style={{ background: "var(--bg)", color: "var(--text)" }} className="border border-gray-200 rounded-xl p-5 flex flex-col gap-2 bg-gray-100 h-75 ">
       <div className="flex items-center justify-between">
         <h2 className="text-sm font-medium text-gray-800">Traffic Overflow</h2>
         <h4 className="text-sm font-medium text-gray-800">Daily visitors for last 30 days.</h4>

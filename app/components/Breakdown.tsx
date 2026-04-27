@@ -19,7 +19,7 @@ export default function Breakcard({
   const isUp = change > 0;
 
   return (
-    <div style={{ background: "var(--bg)", color: "var(--text)" }} className="relative bg-gray-100 rounded-xl p-4 flex flex-col gap-2 hover:bg-purple-100 transition border border-gray-200">
+    <div style={{ background: "var(--bg)", color: "var(--text)" }} className="relative bg-gray-100 rounded-xl p-4 flex flex-col gap-2 hover:bg-purple-100 transition border border-gray-200 flex-1">
 
       
       <div className="absolute top-3 right-3 p-2 bg-purple-200 rounded-full">
