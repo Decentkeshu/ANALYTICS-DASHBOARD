@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createuser, loggedinuser } from "../../services/analyticsservices";
 
+
 export default function SignInPage() {
   const router = useRouter();
   const [form, setForm] = useState({ user: "", email: "", password: "", cpassword: "" });
@@ -30,22 +31,27 @@ export default function SignInPage() {
     }
   };
 
-  const loginuser = async (e: React.FormEvent<HTMLFormElement>) => {
+ const loginuser = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setLoginerror("");
-    const identifier = loginwith === "username" ? form.user : form.email;
-    const result = await loggedinuser(identifier, form.password);
-    setLoading(false);
-    if (result._id) {
-      localStorage.setItem("userId", result._id);
-       localStorage.setItem("userName", result.user);
-      localStorage.setItem("userEmail", result.email);
-      router.push("/Dashboard");
-    } else {
-      setLoginerror("Invalid credentials. Please try again.");
+    try {
+        const identifier = loginwith === "username" ? form.user : form.email;
+        const { status, data } = await loggedinuser(identifier, form.password);
+        setLoading(false);
+        if (status === 200 && data._id) {
+            localStorage.setItem("userId", data._id);
+            localStorage.setItem("userName", data.user);
+            localStorage.setItem("userEmail", data.email);
+            router.push("/Dashboard");
+        } else {
+            setLoginerror(data.message || "Invalid credentials. Please try again.");
+        }
+    } catch (err) {
+        setLoading(false);
+        setLoginerror("Unable to connect to server. Please try again.");
     }
-  };
+};
 
   const inputClass = "w-full px-4 py-3 rounded-xl text-sm text-gray-200 placeholder-gray-700 outline-none transition-all duration-200 focus:border-green-700 border border-gray-800 bg-black";
 
