@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 3001;
 app.use(cors({
     origin: [
         "http://localhost:3000",
-        "https://jarvis-ai-assistant-opal.vercel.app" 
+        "https://analytics-dashboard-five-lake.vercel.app/" 
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
