@@ -4,7 +4,7 @@ import "./globals.css";
 import Navigation from "./components/navbar";
 import AppLayout from "./components/AppLayout";
 import LayoutWrapper from "./layoutwrapper";
-import { ClerkProvider, Show, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
+// import { ClerkProvider, Show, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -31,11 +31,11 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <ClerkProvider> 
+     
           <LayoutWrapper> 
              {children}
         </LayoutWrapper>
-        </ClerkProvider>
+      
         </body>
     </html>
   );

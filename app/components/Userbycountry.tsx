@@ -1,34 +1,38 @@
 "use client"
-
+import { useEffect, useState } from "react"
+import { getCountryData } from "../services/analyticsservices"
 import {
   ComposableMap,
   Geographies,
   Geography
 } from "react-simple-maps"
-
-
 import world from "world-atlas/countries-110m.json"
 
-const countryData = [
-  { name: "India", users: 12000, color: "#6366f1" },
-  { name: "United States of America", users: 8500, color: "#22c55e" },
-  { name: "United Kingdom", users: 3200, color: "#f59e0b" },
-  { name: "Germany", users: 2100, color: "#ef4444" },
-]
-
-const nameColorMap: Record<string, string> = {}
-countryData.forEach(c => {
-  nameColorMap[c.name] = c.color
-})
+type Country = {
+  name: string
+  users: number
+  color: string
+}
 
 interface GeoFeature {
   rsmKey: string
-  properties: {
-    name: string
-  }
+  properties: { name: string }
 }
 
 export default function WorldMap() {
+  const [countryData, setCountryData] = useState<Country[]>([])
+
+  useEffect(() => {
+    const fetchCountries = async () => {
+      const { status, data } = await getCountryData()
+      if (status === 200) setCountryData(data.data)
+    }
+    fetchCountries()
+  }, [])
+
+  const nameColorMap: Record<string, string> = {}
+  countryData.forEach(c => { nameColorMap[c.name] = c.color })
+
   return (
     <div
       style={{ background: "var(--bg)", color: "var(--text)" }}
@@ -37,7 +41,6 @@ export default function WorldMap() {
       <h2 className="text-lg font-semibold mb-4">Users by Country</h2>
 
       <div className="grid grid-cols-3 gap-4 items-center">
-
         <div className="col-span-2 h-[400px]">
           <ComposableMap className="w-full h-full">
             <Geographies geography={world}>
@@ -60,24 +63,16 @@ export default function WorldMap() {
           {countryData
             .sort((a, b) => b.users - a.users)
             .map((c) => (
-              <div
-                key={c.name}
-                className="flex justify-between items-center text-sm bg-white p-3 rounded-lg shadow-sm hover:bg-gray-50 transition"
-              >
+              <div key={c.name}
+                className="flex justify-between items-center text-sm bg-white p-3 rounded-lg shadow-sm hover:bg-gray-50 transition">
                 <div className="flex items-center gap-2">
-                  <span
-                    className="w-2 h-2 rounded-full"
-                    style={{ backgroundColor: c.color }}
-                  />
+                  <span className="w-2 h-2 rounded-full" style={{ backgroundColor: c.color }} />
                   <span>{c.name}</span>
                 </div>
-                <span className="font-semibold">
-                  {c.users.toLocaleString()}
-                </span>
+                <span className="font-semibold">{c.users.toLocaleString()}</span>
               </div>
             ))}
         </div>
-
       </div>
     </div>
   )

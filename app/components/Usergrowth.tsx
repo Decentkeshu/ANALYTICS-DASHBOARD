@@ -1,24 +1,12 @@
 "use client"
+import { useEffect, useState } from "react"
+import { getUserGrowth } from "../services/analyticsservices"
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts"
 
-const data = [
-    {date : "jan 1", Users : 10000},
-    {date : "jan 2", Users : 12000},
-    {date : "jan 3", Users : 9000},
-    {date : "jan 4", Users : 11000},
-    {date : "jan 5", Users : 14000},
-    {date : "jan 6", Users : 12000},
-    {date : "jan 7", Users : 13000},
-    {date : "jan 8", Users : 8000},
-    {date : "jan 9", Users : 10000},
-    {date : "jan 10", Users : 7000},
-    {date : "jan 11", Users : 15000},
-    {date : "jan 12", Users : 11000},
-    {date : "jan 13", Users : 12000},
-    {date : "jan 14", Users : 7000 },
-    {date : "jan 15", Users : 18000},
-    {date : "jan 16", Users : 12000},
-]
+type UserGrowth = {
+    date: string
+    Users: number
+}
 
 const formatYAxis = (value: number) => `${(value / 1000).toFixed(0)}k`
 const formatTooltip = (value: number | string | Array<number | string> | undefined): [string, string] => [
@@ -26,8 +14,17 @@ const formatTooltip = (value: number | string | Array<number | string> | undefin
     "Users"
 ]
 
-
 export default function Usergrowth() {
+  const [data, setData] = useState<UserGrowth[]>([])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const { status, data } = await getUserGrowth()
+      if (status === 200) setData(data.data)
+    }
+    fetchData()
+  }, [])
+
   return (
     <div style={{ background: "var(--bg)", color: "var(--text)" }} className="border border-gray-200 rounded-xl p-5 flex flex-col gap-2 bg-gray-100 h-75 mt-4">
       <div className="flex items-center justify-between">
@@ -44,28 +41,18 @@ export default function Usergrowth() {
       <ResponsiveContainer width="100%" height={220}>
         <AreaChart data={data} margin={{ top: 4, right: 8, left: 0, bottom: 0 }}>
           <defs>
-           <linearGradient id="colorUsers" x1="0" y1="0" x2="0" y2="1">
-  <stop offset="0%"   stopColor="#3b82f6" stopOpacity={0.75} />
-  <stop offset="40%"  stopColor="#3b82f6" stopOpacity={0.55} />
-  <stop offset="75%"  stopColor="#3b82f6" stopOpacity={0.25} />
-  <stop offset="100%" stopColor="#3b82f6" stopOpacity={0} />
-</linearGradient>
-
+            <linearGradient id="colorUsers" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"   stopColor="#3b82f6" stopOpacity={0.75} />
+              <stop offset="40%"  stopColor="#3b82f6" stopOpacity={0.55} />
+              <stop offset="75%"  stopColor="#3b82f6" stopOpacity={0.25} />
+              <stop offset="100%" stopColor="#3b82f6" stopOpacity={0} />
+            </linearGradient>
           </defs>
-
           <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
           <XAxis dataKey="date" />
           <YAxis tickFormatter={formatYAxis} />
-         <Tooltip formatter={formatTooltip as any} />
-
-          <Area
-            type="monotone"
-            dataKey="Users"
-            stroke="#3b82f6"
-            strokeWidth={2}
-            fill="url(#colorUsers)"  
-            dot={false}
-          />
+          <Tooltip formatter={formatTooltip as any} />
+          <Area type="monotone" dataKey="Users" stroke="#3b82f6" strokeWidth={2} fill="url(#colorUsers)" dot={false} />
         </AreaChart>
       </ResponsiveContainer>
     </div>

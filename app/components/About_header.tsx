@@ -5,9 +5,6 @@ import { User, Settings, Bell } from "lucide-react";
 
 const filters = [
   { label: "Last 7 days",  value: "7d"  },
-  // { label: "Last 30 days", value: "30d" },
-  // { label: "Last 90 days", value: "90d" },
-  // { label: "This year",    value: "1y"  },
 ]
 
 type Props = {

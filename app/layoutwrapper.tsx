@@ -14,7 +14,8 @@ export default function LayoutWrapper({
   const isPublicPage =
     pathname === "/" ||
     pathname.includes("sign-in") ||
-    pathname.includes("sign-up");
+    pathname.includes("sign-up") || 
+     pathname.includes("signin");
 
   if (isPublicPage) {
     return (

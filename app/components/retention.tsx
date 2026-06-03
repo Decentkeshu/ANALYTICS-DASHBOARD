@@ -1,56 +1,31 @@
 "use client"
-
+import { useEffect, useState } from "react"
+import { getRetentionChurn } from "../services/analyticsservices"
 import {
-  AreaChart,
-  Area,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  TooltipProps,
+  AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip,
+  ResponsiveContainer, TooltipProps,
 } from "recharts"
 
-const data = [
-  { month: "Nov", retention: 76, churn: 24 },
-  { month: "Dec", retention: 78, churn: 22 },
-  { month: "Jan", retention: 79, churn: 21 },
-  { month: "Feb", retention: 80, churn: 20 },
-  { month: "Mar", retention: 79, churn: 21 },
-  { month: "Apr", retention: 82, churn: 18 },
-]
-
-// import { TooltipProps } from "recharts"
-
 type ChartEntry = {
-  name: string
-  value: number
-  color: string
+  month: string
+  retention: number
+  churn: number
 }
 
 const CustomTooltip = (
   props: TooltipProps<number, string> & {
-    payload?: {
-      name: string
-      value: number
-      color?: string
-      payload: ChartEntry
-    }[]
+    payload?: { name: string; value: number; color?: string; payload: ChartEntry }[]
     label?: string
   }
 ) => {
   const { active, payload, label } = props
-
   if (!active || !payload || payload.length === 0) return null
-
   return (
     <div className="bg-gray-900 text-white text-xs rounded-lg px-3 py-2 shadow-lg">
       <p className="font-medium mb-1">{label}</p>
-
       {payload.map((entry, index) => (
         <p key={index} style={{ color: entry.color }}>
-          {entry.name === "retention" ? "Retention" : "Churn"}:{" "}
-          {entry.value}%
+          {entry.name === "retention" ? "Retention" : "Churn"}: {entry.value}%
         </p>
       ))}
     </div>
@@ -58,41 +33,43 @@ const CustomTooltip = (
 }
 
 export default function RetentionChurn() {
+  const [data, setData] = useState<ChartEntry[]>([])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const { status, data } = await getRetentionChurn()
+      if (status === 200) setData(data.data)
+    }
+    fetchData()
+  }, [])
+
   const latest = data[data.length - 1]
   const prev = data[data.length - 2]
-  const retDiff = +(latest.retention - prev.retention).toFixed(1)
-  const churnDiff = +(latest.churn - prev.churn).toFixed(1)
+  const retDiff = latest && prev ? +(latest.retention - prev.retention).toFixed(1) : 0
+  const churnDiff = latest && prev ? +(latest.churn - prev.churn).toFixed(1) : 0
 
   return (
     <div style={{ background: "var(--bg)", color: "var(--text)" }} className="border border-gray-200 rounded-xl p-5 flex flex-col gap-4 bg-gray-100 mt-3">
-
-     
       <div className="flex items-center justify-between">
         <h2 className="text-sm font-medium text-gray-800">Retention &amp; Churn</h2>
         <span className="text-xs text-gray-400">Last 6 months</span>
       </div>
 
-     
       <div className="grid grid-cols-3 gap-3">
-        
         <div className="bg-white rounded-lg p-3 border border-gray-200 flex flex-col gap-1">
           <span className="text-xs text-gray-400">Retention rate</span>
-          <span className="text-2xl font-semibold text-green-600">{latest.retention}%</span>
+          <span className="text-2xl font-semibold text-green-600">{latest?.retention ?? 0}%</span>
           <span className={`text-xs font-medium ${retDiff >= 0 ? "text-green-500" : "text-red-400"}`}>
             {retDiff >= 0 ? "+" : ""}{retDiff}% vs last month
           </span>
         </div>
-
-       
         <div className="bg-white rounded-lg p-3 border border-gray-200 flex flex-col gap-1">
           <span className="text-xs text-gray-400">Churn rate</span>
-          <span className="text-2xl font-semibold text-red-500">{latest.churn}%</span>
+          <span className="text-2xl font-semibold text-red-500">{latest?.churn ?? 0}%</span>
           <span className={`text-xs font-medium ${churnDiff <= 0 ? "text-green-500" : "text-red-400"}`}>
             {churnDiff >= 0 ? "+" : ""}{churnDiff}% vs last month
           </span>
         </div>
-
-       
         <div className="bg-white rounded-lg p-3 border border-gray-200 flex flex-col gap-1">
           <span className="text-xs text-gray-400">Churned users</span>
           <span className="text-2xl font-semibold text-gray-800">1,240</span>
@@ -100,19 +77,15 @@ export default function RetentionChurn() {
         </div>
       </div>
 
-     
       <div className="flex items-center gap-4">
         <span className="flex items-center gap-1.5 text-xs text-gray-500">
-          <span className="w-3 h-0.5 bg-green-500 inline-block rounded" />
-          Retention
+          <span className="w-3 h-0.5 bg-green-500 inline-block rounded" />Retention
         </span>
         <span className="flex items-center gap-1.5 text-xs text-gray-500">
-          <span className="w-3 h-0.5 bg-red-400 inline-block rounded border-dashed" style={{ borderBottom: "2px dashed #f87171", height: 0 }} />
-          Churn
+          <span className="w-3 h-0.5 bg-red-400 inline-block rounded" />Churn
         </span>
       </div>
 
-      
       <ResponsiveContainer width="100%" height={200}>
         <AreaChart data={data} margin={{ top: 4, right: 8, left: 0, bottom: 0 }}>
           <defs>
@@ -127,37 +100,12 @@ export default function RetentionChurn() {
               <stop offset="100%" stopColor="#dc2626" stopOpacity={0} />
             </linearGradient>
           </defs>
-
           <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
           <XAxis dataKey="month" tick={{ fontSize: 11, fill: "#9ca3af" }} axisLine={false} tickLine={false} />
-          <YAxis
-            tickFormatter={(v) => `${v}%`}
-            tick={{ fontSize: 11, fill: "#9ca3af" }}
-            axisLine={false}
-            tickLine={false}
-            domain={[0, 100]}
-          />
+          <YAxis tickFormatter={(v) => `${v}%`} tick={{ fontSize: 11, fill: "#9ca3af" }} axisLine={false} tickLine={false} domain={[0, 100]} />
           <Tooltip content={<CustomTooltip />} />
-
-          <Area
-            type="monotone"
-            dataKey="retention"
-            stroke="#16a34a"
-            strokeWidth={2.5}
-            fill="url(#retentionGrad)"
-            dot={false}
-            activeDot={{ r: 4, fill: "#16a34a" }}
-          />
-          <Area
-            type="monotone"
-            dataKey="churn"
-            stroke="#dc2626"
-            strokeWidth={2.5}
-            strokeDasharray="5 4"
-            fill="url(#churnGrad)"
-            dot={false}
-            activeDot={{ r: 4, fill: "#dc2626" }}
-          />
+          <Area type="monotone" dataKey="retention" stroke="#16a34a" strokeWidth={2.5} fill="url(#retentionGrad)" dot={false} activeDot={{ r: 4, fill: "#16a34a" }} />
+          <Area type="monotone" dataKey="churn" stroke="#dc2626" strokeWidth={2.5} strokeDasharray="5 4" fill="url(#churnGrad)" dot={false} activeDot={{ r: 4, fill: "#dc2626" }} />
         </AreaChart>
       </ResponsiveContainer>
     </div>
